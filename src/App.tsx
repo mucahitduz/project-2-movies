@@ -14,8 +14,9 @@ import { useMovies } from "./hooks/useMovies";
 export default function App() {
   const [watched, setWatched] = useState<WatchedMovie[]>([]);
   const [selectedId, setSelectedId] = useState("");
+  const [query, setQuery] = useState("");
 
-  const { movies, isLoading } = useMovies("");
+  const { movies, isLoading, fetchMovies } = useMovies(query);
 
   function handleSelectMovie(id: string) {
     setSelectedId(id);
@@ -35,6 +36,10 @@ export default function App() {
     );
   }
 
+  function handleSearch() {
+    fetchMovies();
+  }
+
   return (
     <>
       <Navbar>
@@ -42,7 +47,11 @@ export default function App() {
           <span role="img">🍿</span>
           <h1>Movies</h1>
         </div>
-        <SearchInput query={""} setQuery={() => {}} />
+        <SearchInput
+          query={query}
+          setQuery={setQuery}
+          onSearch={handleSearch}
+        />
         <p className="num-results">
           Found <strong>{movies?.length}</strong> results
         </p>

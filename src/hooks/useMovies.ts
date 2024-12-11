@@ -1,4 +1,4 @@
-import { useState, useEffect, useCallback } from "react";
+import { useState, useCallback } from "react";
 import { MovieService } from "../services/MovieService";
 
 export function useMovies(query: string) {
@@ -6,6 +6,7 @@ export function useMovies(query: string) {
   const [isLoading, setIsLoading] = useState(false);
 
   const fetchMovies = useCallback(async () => {
+    if (!query) return;
     try {
       setIsLoading(true);
       const movieData = await MovieService.fetchMovies(query);
@@ -17,9 +18,5 @@ export function useMovies(query: string) {
     }
   }, [query]);
 
-  useEffect(() => {
-    fetchMovies();
-  }, [query, fetchMovies]);
-
-  return { movies, isLoading };
+  return { movies, isLoading, fetchMovies };
 }
