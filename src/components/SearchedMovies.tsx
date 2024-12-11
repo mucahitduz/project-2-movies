@@ -14,7 +14,11 @@ const SearchedMovies = ({ movies, onSelectMovie }: SearchedMoviesProps) => {
   return (
     <ul className="list list-movies">
       {movies?.map((movie) => (
-        <Movie movie={movie} key={movie.imdbID} onSelectMovie={onSelectMovie} />
+        <Movie
+          key={movie.imdbID || movie.Title}
+          movie={movie}
+          onSelectMovie={onSelectMovie}
+        />
       ))}
     </ul>
   );
