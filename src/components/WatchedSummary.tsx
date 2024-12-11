@@ -7,7 +7,7 @@ interface WatchedSummaryProps {
 
 const WatchedSummary = ({ watched }: WatchedSummaryProps) => {
   const avgImdbRating = average(watched.map((movie) => movie.imdbRating));
-  const avgUserRating = average(watched.map((movie) => movie.userRating || 0));
+  const avgUserRating = average(watched.map((movie) => movie.userRating ?? 0));
   const avgRuntime = average(
     watched.map((movie) => parseInt(movie.runtime, 10))
   );

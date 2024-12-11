@@ -72,9 +72,8 @@ const SelectedMovie = ({
   }, [selectedId, fetchSelectedMovie]);
 
   useEffect(() => {
-    if (movie && movie.Title) {
-      document.title = `Movie | ${movie.Title}`;
-    }
+    document.title = `Movie | ${movie?.Title ?? "Movies"}`;
+
     return function () {
       document.title = "Movies";
     };
