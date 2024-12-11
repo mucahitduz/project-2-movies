@@ -1,5 +1,5 @@
-import { useState, useCallback } from "react";
-import { MovieService } from "../services/MovieService";
+import { useState, useCallback } from 'react';
+import { MovieService } from '../services/MovieService';
 
 export function useMovies(query: string) {
   const [movies, setMovies] = useState([]);

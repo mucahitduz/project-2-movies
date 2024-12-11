@@ -1,8 +1,8 @@
-import { useEffect, useState, useCallback } from "react";
-import { SelectedMovieResponse } from "../types/selected-movie";
-import StarRating from "./StarRating";
-import Loader from "./Loader";
-import { WatchedMovie } from "../types/watched-movie";
+import { useEffect, useState, useCallback } from 'react';
+import { SelectedMovieResponse } from '../types/selected-movie';
+import StarRating from './StarRating';
+import Loader from './Loader';
+import { WatchedMovie } from '../types/watched-movie';
 
 interface SelectedMovieProps {
   selectedId: string;
@@ -18,7 +18,7 @@ const SelectedMovie = ({
   onAddWatched,
 }: SelectedMovieProps) => {
   const [movie, setMovie] = useState<SelectedMovieResponse | undefined>(
-    undefined
+    undefined,
   );
   const [isLoading, setIsLoading] = useState(false);
   const [userRating, setUserRating] = useState(0);
@@ -26,7 +26,7 @@ const SelectedMovie = ({
     ? watched.map((movie) => movie.imdbId).includes(movie.imdbID)
     : false;
   const watchedMovieUserRating = watched.find(
-    (movie) => movie.imdbId === selectedId
+    (movie) => movie.imdbId === selectedId,
   )?.userRating;
 
   const handleCloseMovie = () => {
@@ -40,7 +40,7 @@ const SelectedMovie = ({
       year,
       poster,
       imdbRating: Number(imdbRating),
-      runtime: runtime.split(" ")[0],
+      runtime: runtime.split(' ')[0],
       userRating,
     };
     onAddWatched(watchedMovie);
@@ -56,13 +56,13 @@ const SelectedMovie = ({
       const res = await fetch(URL);
       if (!res.ok) {
         setIsLoading(false);
-        throw new Error("There was an error while fetching movies");
+        throw new Error('There was an error while fetching movies');
       }
       const data = await res.json();
       setMovie(data);
       setIsLoading(false);
     } catch (err) {
-      console.error("Error fetching movies:", err);
+      console.error('Error fetching movies:', err);
       setIsLoading(false);
     }
   }, [URL]);
@@ -72,10 +72,10 @@ const SelectedMovie = ({
   }, [selectedId, fetchSelectedMovie]);
 
   useEffect(() => {
-    document.title = `Movie | ${movie?.Title ?? "Movies"}`;
+    document.title = `Movie | ${movie?.Title ?? 'Movies'}`;
 
     return function () {
-      document.title = "Movies";
+      document.title = 'Movies';
     };
   }, [movie]);
 

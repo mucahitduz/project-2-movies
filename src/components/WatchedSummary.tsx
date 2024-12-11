@@ -1,5 +1,5 @@
-import { WatchedMovie } from "../types/watched-movie";
-import { average } from "../utils/getAverage";
+import { WatchedMovie } from '../types/watched-movie';
+import { average } from '../utils/getAverage';
 
 interface WatchedSummaryProps {
   watched: WatchedMovie[];
@@ -9,7 +9,7 @@ const WatchedSummary = ({ watched }: WatchedSummaryProps) => {
   const avgImdbRating = average(watched.map((movie) => movie.imdbRating));
   const avgUserRating = average(watched.map((movie) => movie.userRating ?? 0));
   const avgRuntime = average(
-    watched.map((movie) => parseInt(movie.runtime, 10))
+    watched.map((movie) => parseInt(movie.runtime, 10)),
   );
 
   return (

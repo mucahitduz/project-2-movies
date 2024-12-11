@@ -1,4 +1,4 @@
-import { ReactNode, useState } from "react";
+import { ReactNode, useState } from 'react';
 
 interface MovieListBoxProps {
   children: ReactNode;
@@ -9,7 +9,7 @@ const MovieListBox = ({ children }: MovieListBoxProps) => {
   return (
     <div className="box">
       <button className="btn-toggle" onClick={() => setIsOpen((open) => !open)}>
-        {isOpen ? "–" : "+"}
+        {isOpen ? '–' : '+'}
       </button>
       {isOpen && children}
     </div>

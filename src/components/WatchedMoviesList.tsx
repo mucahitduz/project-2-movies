@@ -1,5 +1,5 @@
-import WatchedMovie from "./WatchedMovie";
-import { WatchedMovie as WatchedMovieType } from "../types/watched-movie";
+import WatchedMovie from './WatchedMovie';
+import { WatchedMovie as WatchedMovieType } from '../types/watched-movie';
 
 interface WatchedMoviesListProps {
   watched: WatchedMovieType[];

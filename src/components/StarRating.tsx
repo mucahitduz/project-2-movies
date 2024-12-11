@@ -1,6 +1,6 @@
-import { useState } from "react";
-import "../App.css";
-import Star from "./Star";
+import { useState } from 'react';
+import '../App.css';
+import Star from './Star';
 
 interface StarRatingProps {
   maxRating: number;
@@ -11,7 +11,7 @@ interface StarRatingProps {
 
 const StarRating = ({
   maxRating = 10,
-  color = "#fcc419",
+  color = '#fcc419',
   size = 48,
   onSetRating,
 }: StarRatingProps) => {
@@ -42,7 +42,7 @@ const StarRating = ({
         className="star-text"
         style={{ color: color, fontSize: `${size / 2}px` }}
       >
-        {ratingHover || ""}
+        {ratingHover || ''}
       </p>
     </div>
   );

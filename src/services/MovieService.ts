@@ -5,7 +5,7 @@ export class MovieService {
     const URL = `${BASE_URL}${API_KEY}&s=${query}`;
 
     const res = await fetch(URL);
-    if (!res.ok) throw new Error("Error fetching movies");
+    if (!res.ok) throw new Error('Error fetching movies');
     const data = await res.json();
     return data.Search;
   }

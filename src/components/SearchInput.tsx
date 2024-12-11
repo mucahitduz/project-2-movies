@@ -6,7 +6,7 @@ interface SearchInputProps {
 
 const SearchInput = ({ query, setQuery, onSearch }: SearchInputProps) => {
   const handleKeyDown = (e: React.KeyboardEvent) => {
-    if (e.key === "Enter") {
+    if (e.key === 'Enter') {
       onSearch();
     }
   };

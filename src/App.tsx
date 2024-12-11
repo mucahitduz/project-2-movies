@@ -1,20 +1,20 @@
-import Navbar from "./components/Navbar";
-import Main from "./components/Main";
-import { useState } from "react";
-import SearchInput from "./components/SearchInput";
-import SearchedMovies from "./components/SearchedMovies";
-import MovieListBox from "./components/MovieListBox";
-import WatchedSummary from "./components/WatchedSummary";
-import WatchedMoviesList from "./components/WatchedMoviesList";
-import Loader from "./components/Loader";
-import SelectedMovie from "./components/SelectedMovie";
-import { WatchedMovie } from "./types/watched-movie";
-import { useMovies } from "./hooks/useMovies";
+import Navbar from './components/Navbar';
+import Main from './components/Main';
+import { useState } from 'react';
+import SearchInput from './components/SearchInput';
+import SearchedMovies from './components/SearchedMovies';
+import MovieListBox from './components/MovieListBox';
+import WatchedSummary from './components/WatchedSummary';
+import WatchedMoviesList from './components/WatchedMoviesList';
+import Loader from './components/Loader';
+import SelectedMovie from './components/SelectedMovie';
+import { WatchedMovie } from './types/watched-movie';
+import { useMovies } from './hooks/useMovies';
 
 export default function App() {
   const [watched, setWatched] = useState<WatchedMovie[]>([]);
-  const [selectedId, setSelectedId] = useState("");
-  const [query, setQuery] = useState("");
+  const [selectedId, setSelectedId] = useState('');
+  const [query, setQuery] = useState('');
 
   const { movies, isLoading, fetchMovies } = useMovies(query);
 
@@ -23,7 +23,7 @@ export default function App() {
   }
 
   function handleCloseMovie() {
-    setSelectedId("");
+    setSelectedId('');
   }
 
   function handleAddWatched(movie: WatchedMovie) {
@@ -32,7 +32,7 @@ export default function App() {
 
   function handleDeleteWatchedMovie(id: string) {
     setWatched((prevWatched) =>
-      prevWatched.filter((movie) => movie.imdbId !== id)
+      prevWatched.filter((movie) => movie.imdbId !== id),
     );
   }
 
